@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        <p><strong>작성자:</strong> {{ post.author }}</p>
+        <p><strong>작성일:</strong> {{ post.created_at }}</p>
+        <a href="{% url 'post:post_update' post.pk %}">수정</a>
+        <a href="{% url 'post:post_delete' post.pk %}">삭제</a>
+    {% endblock %}
+
+    
+</body>
+</html>

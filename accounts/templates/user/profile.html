@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 사용자 이름 출력 -->
+    <h1>{{ user.username }}의 프로필</h1>
+
+    <!-- 이미지 유무 확인 -->
+    {% if user.profile_image %}
+        <!-- 프로필 이미지가 존재하는 경우, 해당 이미지를 출력 -->
+        <img src="{{ user.profile_image.url }}" alt="Profile Image">
+    {% else %}
+        <!-- 프로필 이미지가 없을 경우, 해당 문구를 출력 -->
+        <p>프로필 이미지가 없습니다.</p>
+    {% endif %}
+    <!-- 사용자의 이메일을 출력 -->
+    <p><strong>이메일:</strong> {{ user.email }}</p>
+    <!-- 사용자의 소개글을 출력 -->
+    <p><strong>소개글:</strong> {{ user.bio }}</p>
+    <!-- 로그아웃 버튼, 클릭 시 로그아웃 처리 URL로 이동 -->
+    <a href="{% url 'accounts:logout' %}"><button type="button">Logout</button></a>
+    <!-- 게시물 목록 페이지로 이동하는 버튼 -->
+    <a href="{% url 'post:post_list' %}"><button type="button">Post</button></a>
+ 
+</body>
+</html>

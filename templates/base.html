@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'post:post_list' %}">Home</a></li>
+                <li><a href="{% url 'post:post_create' %}">New Post</a></li>
+                <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 My Site</p>
+    </footer>
+</body>
+</html>
